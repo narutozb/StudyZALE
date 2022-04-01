@@ -38,9 +38,9 @@
 ## 初级
 
 ### Q&A
-+ 什么是大纲视图?（Outliner）
-+ 调整窗口的背景颜色（Viewport Background Color）
-+ 大纲视图在哪调出来？
++ 如何切换Maya的显示语言?
++ [什么是大纲视图?（Outliner）](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-4B9A9A3A-83C5-445A-95D5-64104BC47406)
++ [调整窗口的背景颜色（Viewport Background Color）](https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2022/CHS/Maya-Basics/files/GUID-E506209A-CCCD-4886-86EB-0F7825F3003B-htm.html)
 + 如何切换各种视图模式?
 + 为什么模型的面黑了？(法线反了？材质半透明？)
 + 菜单栏里的按钮后面的方盒子是什么？(Options)
@@ -54,17 +54,14 @@
 + 通道编辑器在哪？(Channel Box)
 
 
+
 ### 操作
 + 如何选择物体
-+ 如何移动物体
-+ 如何旋转物体
-+ 如何缩放物体
++ + 如何隐藏物体
 + 如何初始化选择选项
 + 如何初始化移动选项
 + 如何初始化旋转选项
 + 如何初始化缩放选项
-+ 如何隐藏物体
-+ 如何选择物体
 + 如何选择点(多边形)
 + 如何选择边(多边形)
 + 如何选择面(多边形)
@@ -73,7 +70,8 @@
 
 ## 建模
 + 倒角(Bevel)
-+ 
++ 桥接(Bridge)
++ 挤出(Extrude)
 
 ## 材质
 
