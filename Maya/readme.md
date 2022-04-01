@@ -18,12 +18,16 @@
 
 > 法线
 
-+ 面法线
 法线用于确定多边形面的方向。也就是确定模型（面）的正面或背面。
 
 ![](https://github.com/narutozb/StudyZALE/blob/master/Maya/images/%E9%9D%A2%E6%B3%95%E7%BA%BF_%E6%AD%A3%E5%8F%8D%E9%9D%A2%E5%AF%B9%E6%AF%94.PNG?raw=true)
 
++ 面法线
 
+多边形某个面的正面使用称为多边形法线的向量以图形表示。
+
+![](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Modeling/images/GUID-E0389470-8DCE-45B2-8952-D293E3398E38.png)
++ 
 
 ## 基本操作
 
