@@ -21,7 +21,7 @@
 + 面法线
 法线用于确定多边形面的方向。也就是确定模型（面）的正面或背面。
 
-![](..\Maya\images\面法线_正反面对比.PNG)
+![](https://github.com/narutozb/StudyZALE/blob/master/Maya/images/%E9%9D%A2%E6%B3%95%E7%BA%BF_%E6%AD%A3%E5%8F%8D%E9%9D%A2%E5%AF%B9%E6%AF%94.PNG?raw=true)
 
 
 
