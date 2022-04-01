@@ -1,13 +1,13 @@
 # 常见的问题解决
 
 此页面包含了各种疑难杂症的解决方案，一点也不难。
-
+本页面各种说明适用于Maya2018或以上版本。
 
 ## 专业术语
 
 > 建模类型
-+ 多边形(Polygon)
-+ 曲面(NURBS)
++ [多边形(Polygon)](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-7941F97A-36E8-47FE-95D1-71412A3B3017)
++ [曲面(NURBS)](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-735A0B9A-2180-4FB8-9A7B-68F21F306E97)
 虽然这两种建模方式都有自己的优缺点，但目前绝大多数工作室或公司都会使用多边形建模。
 
 > 高模
@@ -56,9 +56,9 @@
 
 
 ### 操作
-+ 如何选择物体
-+ + 如何隐藏物体
-+ 如何初始化选择选项
++ 如何选择物体 
+  - 如何初始化选择选项
++ 如何隐藏物体
 + 如何初始化移动选项
 + 如何初始化旋转选项
 + 如何初始化缩放选项
@@ -66,15 +66,55 @@
 + 如何选择边(多边形)
 + 如何选择面(多边形)
 + 查看多边形的顶点
-+ 查看多边形
 
 ## 建模
-+ 倒角(Bevel)
-+ 桥接(Bridge)
-+ 挤出(Extrude)
+
++ 多边形(Mesh)
+  - 倒角(Bevel)
+  - 桥接(Bridge)
+  - 挤出(Extrude)
+  - 平滑(Smooth)
+  - 合并(Combine)
+  - 分离(Sparate)
++ 优化和清理(Cleanup)
++ 传递属性(Transfer Attributes)
++ UV
 
 ## 材质
++ 材质编辑器
++ 材质类型
+  - Lambert
+  - Blinn
+  - Phong
+  - SurfaceShader
+  - RampShader
++ 如何给多边形添加材质
 
 ## 绑定
++ 骨骼
++ 权重
++ 控制器
++ 变形器
++ Cluster
++ FK
++ IK
++ HumanIK
 
-## 
+## 渲染
++ 灯光
+  - 点光源
+  - 面光源
+  - 平行光源
+  - 体积光源
++ 渲染器
+  - Maya Software
+    - 渲染设置 
+  - Arnold Renderer
+    - 渲染设置  
+  - vRay
+    - 渲染设置 
+
+## 特效
++ 流体
++ nCloth
++ Bifrost
