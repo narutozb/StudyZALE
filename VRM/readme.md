@@ -1,5 +1,5 @@
 # 利用 [UniVRM](https://github.com/vrm-c/UniVRM) 工具制作 [VRM](https://vrm.dev/en/vrm/vrm_about) 类型文件
-*一点都不难。*
+一点都不难。
 
 ## 快速入门
 
