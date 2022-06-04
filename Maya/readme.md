@@ -2,28 +2,18 @@
 
 以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
 书写风格为[pep8](https://peps.python.org/pep-0008/)。
-
-* [aa](#获取已选择节点的列表信息)
-
 [Maya中的Python](https://knowledge.autodesk.com/zh-hans/support/maya/downloads/caas/CloudHelp/cloudhelp/2019/CHS/Maya-Scripting/files/GUID-C0F27A50-3DD6-454C-A4D1-9E3C44B3C990-htm.html)是什么？
 
-## 导入模块
+## 导入模块 [import](https://docs.python.org/zh-cn/3/reference/import.html)
 以下例文都会使用到[maya.cmds](https://help.autodesk.com/view/MAYAUL/2019/ENU/?guid=__Commands_index_html)模块。
-
----
 
 ```python
 import maya.cmds as cmds
 ```
 
-## 选择节点
-
-[cmds.select的说明文档](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/select.html)
-
----
+## 选择节点 [cmds.select](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/select.html)
 
 ### 选择单个节点
-
 ```python
 cmds.select('joint1')
 cmds.select('pCube1')
@@ -61,11 +51,7 @@ cmds.select(cl=True)
 ![](images/select解除选择.gif)
 
 
-## 查询节点的类型
-
-[cmds.nodeType](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/nodeType.html)
-
----
+## 查询节点的类型 [cmds.nodeType](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/nodeType.html)
 
 查看joint1的节点类型
 ```python
@@ -104,9 +90,7 @@ for i in cmds.ls(sl=True):
 ```
 ![](images/nodeType_lssl.gif)
 
-## 获取已选择节点的列表信息
-
-[cmds.ls](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/ls.html)
+## 获取已选择节点的列表信息 [cmds.ls](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/ls.html)
 
 打印**所选择节点**的名字
 ```python
@@ -135,4 +119,4 @@ for i in cmds.ls(sl=True,long=True):
 ```
 ![](images/ls_sllong.gif)
 
-## 
+## 重命名 [cmds.rename](https://help.autodesk.com/cloudhelp/2019/ENU/Maya-Tech-Docs/CommandsPython/rename.html)
