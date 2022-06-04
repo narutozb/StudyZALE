@@ -4,11 +4,6 @@
 以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
 书写风格为[pep8](https://peps.python.org/pep-0008/)。
 
-
-
-## 导入模块 [import](https://docs.python.org/zh-cn/3/reference/import.html)
-以下例文都会使用到[maya.cmds](https://help.autodesk.com/view/MAYAUL/2019/ENU/?guid=__Commands_index_html)模块。
-
 ## 常见Q&A
 > Q: 为什么在一些特定的字符串前面需要加`r`
 
@@ -19,6 +14,9 @@
 > Q: Maya中的Python
 
 答案在[这里](https://knowledge.autodesk.com/zh-hans/support/maya/downloads/caas/CloudHelp/cloudhelp/2019/CHS/Maya-Scripting/files/GUID-C0F27A50-3DD6-454C-A4D1-9E3C44B3C990-htm.html)
+
+## 导入模块 [import](https://docs.python.org/zh-cn/3/reference/import.html)
+以下例文都会使用到[maya.cmds](https://help.autodesk.com/view/MAYAUL/2019/ENU/?guid=__Commands_index_html)模块。
 
 ```python
 import maya.cmds as cmds
