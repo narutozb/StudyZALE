@@ -1,6 +1,7 @@
-# Maya 常用功能例文和参照
+# Maya python例文参照
 
 以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
+书写风格为[pep8](https://peps.python.org/pep-0008/)。
 
 [Maya中的Python](https://knowledge.autodesk.com/zh-hans/support/maya/downloads/caas/CloudHelp/cloudhelp/2019/CHS/Maya-Scripting/files/GUID-C0F27A50-3DD6-454C-A4D1-9E3C44B3C990-htm.html)是什么？
 
