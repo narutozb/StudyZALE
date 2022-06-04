@@ -113,10 +113,23 @@ for i in cmds.ls(sl=True):
 ```
 ![](images/ls_sl.gif)
 
-获取节点的完整路径
+获取节点的[完整路径](https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/CHS/Maya/files/GUID-1AADB448-372A-4CA5-A350-5CD63E30F0E5-htm.html)
 ```python
-for i in cmds.ls(sl=True, long=True):
+# create joint node
+joint_list = ['joint1', 'joint2']
+for i in joint_list:
+    cmds.joint(name=i)
+
+# select joints
+cmds.select(joint_list)
+
+for i in cmds.ls(sl=True,long=True):
     print(i)
 ```
-
+结果
+```
+|joint1
+|joint1|joint2
+```
+![](images/ls_sllong.gif)
 
