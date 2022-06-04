@@ -6,6 +6,9 @@
 
 ## 导入模块
 以下例文都会使用到maya.cmds模块。所以，开头必须导入maya.cmds模块。
+
+---
+
 ```python
 import maya.cmds as cmds
 ```
@@ -13,6 +16,8 @@ import maya.cmds as cmds
 ## 选择物体
 
 [cmds.select的说明文档](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/select.html)
+
+---
 
 ### 选择单个物体
 
@@ -51,3 +56,55 @@ for i in ['joint2','joint3','pCube1','pTorus1']:
 cmds.select(cl=True)
 ```
 ![](images/select解除选择.gif)
+
+
+## 查询节点的类型
+
+[cmds.nodeType](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/nodeType.html)
+
+---
+
+查看joint1的节点类型
+```python
+print(cmds.nodeType('joint1'))
+```
+结果
+
+```transform```
+说明joint1的节点类型为transform。
+
+---
+
+查看pTorus1的节点类型
+```python
+print(cmds.nodeType('pTorus1'))
+```
+输出
+``
+
+
+
+```python
+for i in cmds.ls(sl=True):
+    print ('%s node type: %s'%(i, cmds.nodeType(i)))
+```
+
+
+## 获取已选择物体的列表信息
+
+[cmds.ls](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/ls.html)
+
+打印**所选择物体或节点**的名字
+```python
+for i in cmds.ls(sl=True):
+    print(i)
+```
+![](images/ls_sl.gif)
+
+获取节点的完整路径
+```python
+for i in cmds.ls(sl=True, long=True):
+    print(i)
+```
+
+
