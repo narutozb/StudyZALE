@@ -38,7 +38,7 @@ cmds.file(r'C:\temp\TestScene1.mb',o=True, f=True, ignoreVersion=True)
 ```
 ![](images/file_open.gif)
 
-### 新建场景 (New Sccene)
+### 新建场景 (New Scene)
 ```python
 cmds.file(f=True, new=True)
 ```
