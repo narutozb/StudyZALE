@@ -1,125 +1,51 @@
-# 常见的问题解决
+# Maya 常用功能例文
 
-此页面包含了各种疑难杂症的解决方案，一点也不难。
-本页面各种说明适用于Maya2018或以上版本。
+以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
 
-## 专业术语
+[Maya中的Python](https://knowledge.autodesk.com/zh-hans/support/maya/downloads/caas/CloudHelp/cloudhelp/2019/CHS/Maya-Scripting/files/GUID-C0F27A50-3DD6-454C-A4D1-9E3C44B3C990-htm.html)是什么？
 
-> 建模类型
-+ [多边形(Polygon)](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-7941F97A-36E8-47FE-95D1-71412A3B3017)
-+ [曲面(NURBS)](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-735A0B9A-2180-4FB8-9A7B-68F21F306E97)
+## 导入模块
+以下例文都会使用到maya.cmds模块。所以，开头必须导入maya.cmds模块。
+```python
+import maya.cmds as cmds
+```
 
-虽然这两种建模方式都有自己的优缺点，但目前绝大多数工作室或公司都会使用多边形建模。
+## 选择物体
 
-> 高模
+[cmds.select的说明文档](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/select.html)
 
-通过[平滑](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-DF6EC285-5436-4FF1-A402-3498014BDE74)(Smooth)或者加线等方式提高模型的平滑度或者细节。
+### 选择单个物体
 
-![](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-GettingStarted/images/GUID-5439DA76-275B-4830-B5BA-4A8983B8B286.png)
+```python
+cmds.select('joint1')
+cmds.select('pCube1')
+```
 
-> 法线
+![](images/选择单个物体.gif)
 
-简而言之，法线就是确定模型（面）的正面或背面的参考线。
+### 同时选择多个物体
+```python
+cmds.select('joint1', 'pCube1')
+cmds.select(['joint1', 'pCube1'])
+```
 
-如果法线面反向你则你看到的面为灰白色（受光面），如果法线背对你则你看到的面便是黑色的（不受光）。
+### 加选1个或多个物体
+```python
+cmds.select('joint1')
+cmds.select('joint2', add=True)
+cmds.select('joint3', add=True)
+cmds.select('pCube1', add=True)
+cmds.select('pTorus1', add=True)
+```
 
-![](https://github.com/narutozb/StudyZALE/blob/master/Maya/images/%E9%9D%A2%E6%B3%95%E7%BA%BF_%E6%AD%A3%E5%8F%8D%E9%9D%A2%E5%AF%B9%E6%AF%94.PNG?raw=true)
+```python
+cmds.select('joint1')
+for i in ['joint2','joint3','pCube1','pTorus1']:
+    cmds.select(i, add=True)
+```
 
-[学习更多关于法线的知识。](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-9C257D44-924D-4B3F-ADEF-C71FAA98EAB1)
+### 解除当前选择物体
 
-> UV sdfadf
-
-> 贴图 
-> 材质
-> 渲染
-> 绑定
-> 动画
-> FBX
-> MA
-> MB
-> 
-
-## 初级
-
-### Q&A
-+ 如何切换Maya的显示语言?
-+ [什么是大纲视图?（Outliner）](https://help.autodesk.com/view/MAYAUL/2020/CHS/?guid=GUID-4B9A9A3A-83C5-445A-95D5-64104BC47406)
-+ [调整窗口的背景颜色（Viewport Background Color）](https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2022/CHS/Maya-Basics/files/GUID-E506209A-CCCD-4886-86EB-0F7825F3003B-htm.html)
-+ 如何切换各种视图模式?
-+ 为什么模型的面黑了？(法线反了？材质半透明？)
-+ 菜单栏里的按钮后面的方盒子是什么？(Options)
-+ 节点编辑器在哪里？(Node Editor)
-+ 设置场景单位(米，厘米，帧速率)
-+ 中心点偏了怎么办？(看不见了？)
-+ 物体消失了怎么查看它在哪？
-+ (整个场景)全黑了怎么办？
-+ 菜单没了怎么办？(shelf, Status Line)
-+ 属性编辑器在哪？(Attribute Editor)
-+ 通道编辑器在哪？(Channel Box)
-
-
-
-### 操作
-+ 如何选择物体 
-  - 如何初始化选择选项
-+ 如何隐藏物体
-
-
-
-## 建模
-
-+ 创建多边形
-  - f
-+ 选择多边形
-  - 选择面 
-+ 编辑多边形(Edit Mesh)
-  - 平滑(Smooth)
-  - 合并(Combine)
-  - 分离(Sparate)
-  - 倒角(Bevel)
-  - 桥接(Bridge)
-  - 挤出(Extrude)
-+ 
-
-+ 优化和清理(Cleanup)
-+ 传递属性(Transfer Attributes)
-+ UV
-
-## 材质
-+ 材质编辑器
-+ 材质类型
-  - Lambert
-  - Blinn
-  - Phong
-  - SurfaceShader
-  - RampShader
-+ 如何给多边形添加材质
-
-## 绑定
-+ 骨骼
-+ 权重
-+ 控制器
-+ 变形器
-+ Cluster
-+ FK
-+ IK
-+ HumanIK
-
-## 渲染
-+ 灯光
-  - 点光源
-  - 面光源
-  - 平行光源
-  - 体积光源
-+ 渲染器
-  - Maya Software
-    - 渲染设置 
-  - Arnold Renderer
-    - 渲染设置  
-  - vRay
-    - 渲染设置 
-
-## 特效
-+ 流体
-+ nCloth
-+ Bifrost
+```python
+cmds.select(cl=True)
+```
