@@ -14,28 +14,28 @@
 import maya.cmds as cmds
 ```
 
-## 选择物体
+## 选择节点
 
 [cmds.select的说明文档](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/select.html)
 
 ---
 
-### 选择单个物体
+### 选择单个节点
 
 ```python
 cmds.select('joint1')
 cmds.select('pCube1')
 ```
 
-![](images/选择单个物体.gif)
+![](images/选择单个节点.gif)
 
-### 同时选择多个物体
+### 同时选择多个节点
 ```python
 cmds.select('joint1', 'pCube1')
 cmds.select(['joint1', 'pCube1'])
 ```
 
-### 加选1个或多个物体
+### 加选1个或多个节点
 ```python
 cmds.select('joint1')
 cmds.select('joint2', add=True)
@@ -51,7 +51,7 @@ for i in ['joint2','joint3','pCube1','pTorus1']:
     cmds.select(i, add=True)
 ```
 
-### 解除当前选择物体
+### 解除当前选择节点
 
 ```python
 cmds.select(cl=True)
@@ -67,35 +67,45 @@ cmds.select(cl=True)
 
 查看joint1的节点类型
 ```python
+# create joint node
+cmds.joint('joint1')
+# print node type
 print(cmds.nodeType('joint1'))
 ```
 结果
+```
+joint
+```
 
-```transform```
 说明joint1的节点类型为transform。
 
 ---
 
 查看pTorus1的节点类型
 ```python
+# create a polyTorus
+cmds.polyTorus()
+# print node type
 print(cmds.nodeType('pTorus1'))
 ```
 输出
-``
 
+```
+transform
+```
 
-
+查看所选节点的节点类型
 ```python
 for i in cmds.ls(sl=True):
     print ('%s node type: %s'%(i, cmds.nodeType(i)))
 ```
+![](images/nodeType_lssl.gif)
 
-
-## 获取已选择物体的列表信息
+## 获取已选择节点的列表信息
 
 [cmds.ls](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/ls.html)
 
-打印**所选择物体或节点**的名字
+打印**所选择节点**的名字
 ```python
 for i in cmds.ls(sl=True):
     print(i)
