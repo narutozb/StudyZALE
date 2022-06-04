@@ -6,7 +6,7 @@
 [Maya中的Python](https://knowledge.autodesk.com/zh-hans/support/maya/downloads/caas/CloudHelp/cloudhelp/2019/CHS/Maya-Scripting/files/GUID-C0F27A50-3DD6-454C-A4D1-9E3C44B3C990-htm.html)是什么？
 
 ## 导入模块
-以下例文都会使用到maya.cmds模块。所以，开头必须导入maya.cmds模块。
+以下例文都会使用到[maya.cmds](https://help.autodesk.com/view/MAYAUL/2019/ENU/?guid=__Commands_index_html)模块。
 
 ---
 
@@ -76,6 +76,7 @@ print(cmds.nodeType('joint1'))
 ```
 joint
 ```
+![](images/nodeType_joint1.gif)
 
 说明joint1的节点类型为transform。
 
