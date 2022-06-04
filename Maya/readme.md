@@ -22,7 +22,7 @@
 import maya.cmds as cmds
 ```
 
-## 文件 cmds.file
+## 文件 [cmds.file](https://help.autodesk.com/cloudhelp/2019/ENU/Maya-Tech-Docs/Commands/file.html)
 
 ### 打开一个maya文件
 ```python
@@ -35,7 +35,7 @@ cmds.file(r'C:\temp\TestScene1.mb',o=True, f=True, ignoreVersion=True)
 ```
 ![](images/file_open.gif)
 
-### 新建场景
+### 新建场景 (New Sccene)
 ```python
 cmds.file(f=True, new=True)
 ```
@@ -46,11 +46,11 @@ cmds.file(f=True, new=True)
 ![](images/file_new.gif)
 
 
-### 将场景另存为 
+### 将场景另存为 (Save Scene As..)
 ```python
-
+cmds.file(rename=r'C:/temp/bb1.mb')
+cmds.file(save=True, f=True)
 ```
-
 
 ## 选择节点 [cmds.select](https://help.autodesk.com/cloudhelp/2020/CHS/Maya-Tech-Docs/CommandsPython/select.html)
 
