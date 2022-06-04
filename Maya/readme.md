@@ -1,7 +1,9 @@
-# Maya python例文参照
+# Maya python例文参照(入门)
 
 以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
 书写风格为[pep8](https://peps.python.org/pep-0008/)。
+
+* [aa](#获取已选择节点的列表信息)
 
 [Maya中的Python](https://knowledge.autodesk.com/zh-hans/support/maya/downloads/caas/CloudHelp/cloudhelp/2019/CHS/Maya-Scripting/files/GUID-C0F27A50-3DD6-454C-A4D1-9E3C44B3C990-htm.html)是什么？
 
@@ -113,7 +115,7 @@ for i in cmds.ls(sl=True):
 ```
 ![](images/ls_sl.gif)
 
-获取节点的[完整路径](https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/CHS/Maya/files/GUID-1AADB448-372A-4CA5-A350-5CD63E30F0E5-htm.html)
+获取[节点的完整路径](https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2016/CHS/Maya/files/GUID-1AADB448-372A-4CA5-A350-5CD63E30F0E5-htm.html)
 ```python
 # create joint node
 joint_list = ['joint1', 'joint2']
@@ -133,3 +135,4 @@ for i in cmds.ls(sl=True,long=True):
 ```
 ![](images/ls_sllong.gif)
 
+## 
