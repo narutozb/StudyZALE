@@ -4,6 +4,9 @@
 以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
 书写风格为[pep8](https://peps.python.org/pep-0008/)。
 
+点击导航栏可以搜索或者直接定位到想看的内容。
+![](images/导航栏.png)
+
 ## 常见Q&A
 > Q: 为什么在一些特定的字符串前面需要加`r`
 
