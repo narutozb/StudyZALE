@@ -1,4 +1,4 @@
-# Maya 常用功能例文
+# Maya 常用功能例文和参照
 
 以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
 
@@ -37,6 +37,7 @@ cmds.select('joint3', add=True)
 cmds.select('pCube1', add=True)
 cmds.select('pTorus1', add=True)
 ```
+![](images/select加选.gif)
 
 ```python
 cmds.select('joint1')
@@ -49,3 +50,4 @@ for i in ['joint2','joint3','pCube1','pTorus1']:
 ```python
 cmds.select(cl=True)
 ```
+![](images/select解除选择.gif)
