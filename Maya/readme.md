@@ -12,7 +12,7 @@
 
 原始字符串 - 原始字符串：所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。 原始字符串除在字符串的第一个引号前加上字母 r（可以大小写）以外，与普通字符串有着几乎完全相同的语法。
 
-[例文和参照等](../python/resources/string.md#操作符 r)
+[例文和参照等](../python/resources/string.md#操作符r)
 
 [更多内容字符串相关内容](https://www.runoob.com/python3/python3-string.html)
 
