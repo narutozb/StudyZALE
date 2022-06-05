@@ -4,7 +4,7 @@
 以下例文均以[Python3语法](https://docs.python.org/zh-cn/3/whatsnew/3.0.html)编写。
 书写风格为[pep8](https://peps.python.org/pep-0008/)。
 
-想要了解python的基本语法等可以[点击这里](../python/基础.md)。
+想要了解python的基本语法等可以[点击这里(内容更新中..)](../python/基础.md)。
 
 点击导航栏可以搜索或者直接定位到想看的内容。
 ![](images/导航栏.png)
