@@ -4,4 +4,4 @@
 ## Q&A
 
 * [如何安装](resources/install.md)
-* [如何修改VSCode的显示语言](resources)
+* [如何修改VSCode的显示语言](resources/修改显示语言.md)
