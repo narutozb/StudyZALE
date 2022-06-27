@@ -132,3 +132,13 @@ aa = rename_objects_by_type(
 )
 
 
+import pymel.core as pm
+
+template = uiTemplate('ExampleTemplate', force=True)
+template.define(button, width=100, height=40, align='left')
+template.define(frameLayout, borderVisible=True, labelVisible=False)
+
+# with pm.window(menuBar=True, menuBarVisible=True) as win:
+#     with
+
+
