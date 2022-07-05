@@ -2,37 +2,12 @@ from PySide2 import QtCore,QtWidgets,QtGui
 from PySide2.QtWidgets import QLabel,QPushButton,QApplication, QDialog, QLineEdit, QPushButton,QLineEdit, QPushButton, QApplication,QVBoxLayout, QDialog, QHBoxLayout,QTextBrowser,QComboBox
 from PySide2.QtCore import Slot
 
+import maya.app.general.mayaMixin as MayaMixin
+import maya.OpenMaya as om
+import maya.OpenMayaUI
+from shiboken2 import wrapInstance
 
-import sys
-import random
-class MyWidget(QtWidgets.QWidget):
-    def __init__(self):
-        super(MyWidget,self).__init__()
 
-        self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
-
-        button = QtWidgets.QPushButton("Click me!")
-        self.text = QtWidgets.QLabel("Hello World",
-                                     alignment=QtCore.Qt.AlignCenter)
-
-        self.layout = QtWidgets.QVBoxLayout(self)
-        self.layout.addWidget(self.text)
-        self.layout.addWidget(button)
-
-        button.clicked.connect(self.magic)
-
-    @QtCore.Slot()
-    def magic(self):
-        self.text.setText(random.choice(self.hello))
-        print (1)
-
-@Slot()
-def say_hello():
-    print("Button clicked, Hello!")
-
-button = QPushButton('clack me')
-button.clicked.connect(say_hello)
-button.show()
 
 def teee(func):
     def wrapper(*args, **kwargs):
@@ -99,8 +74,9 @@ class Form(QDialog):
 
 
 
-mayaMainWindowPtr = omui.MQtUtil.mainWindow()
-mayaMainWindow= wrapInstance(long(mayaMainWindowPtr), QWidget)
+
+mayaMainWindowPtr = maya.OpenMayaUI.MQtUtil.mainWindow()
+mayaMainWindow= wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)
 
 
 # Create and show the form
