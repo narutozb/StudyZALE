@@ -77,6 +77,7 @@ cmds.select(cl=True)
 
 ### deselect
 > Indicates that the specified items should be removed from the active list if they are on the active list.
+> 
 > 取消选择某个或某些特定物体。
 
 ```python
@@ -87,6 +88,7 @@ cmds.select(['joint1','light_group'],deselect=True)
 
 ### hierarchy
 > Indicates that all children, grandchildren, ... of the specified dag objects should also be selected.
+> 
 > 此选项为True时，被选择的物体连同其所有子物体都会被选中。
 
 ```python
@@ -96,6 +98,7 @@ cmds.select('joint1', hi=True)
 
 ### replace
 > Indicates that the specified items should replace the existing items on the active list.
+> 
 > 通常来说，结果与不填加此选项一样。
 
 ```python
@@ -108,6 +111,7 @@ cmds.select('pCube*')
 
 ### visible
 > Indicates that of the specified items only those that are visible should be affected.
+> 
 > 只有没被隐藏的物体才会被选中。
 
 ```python
@@ -121,6 +125,7 @@ cmds.select('pCube*', visible=True)
 ### 情况1
 
 > 选择名字以 pCube 开始的物体，并且其结尾的数字必须为偶数。
+> 
 > pCube2,pCube4,pCube6,...
 
 ### 方法1
@@ -146,7 +151,7 @@ for i in range(1,25):
 ```
 
 ### 情况2
-选择 light_group1 组中的所有子物体。
+> 选择 light_group1 组中的所有子物体。
 
 #### 方法1
 ```python
