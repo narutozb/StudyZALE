@@ -52,8 +52,7 @@ cmds.select(['pCube2','pCube3'],add=True)
 ### all
 
 > Indicates that all deletable root level dag objects and all deletable non-dag dependency nodes should be selected.
----
-> 解释
+> 
 > 在Maya中有一些物体是不可以被删除的。例如，打开或者新建场景时自带的摄像机节点。persp, top, front, side。
 > 利用此参数可以选择所有不可被删除的根节点。
 
