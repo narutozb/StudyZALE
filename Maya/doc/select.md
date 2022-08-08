@@ -1,5 +1,7 @@
 # select
 
+[select帮助文档](https://help.autodesk.com/cloudhelp/2023/CHS/Maya-Tech-Docs/CommandsPython/select.html)
+
 下载 [测试场文件](../resource/select_sample.mb)
 
 ## 例文
