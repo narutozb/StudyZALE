@@ -39,6 +39,7 @@ cmds.select(['joint1','joint2','joint3'])
 ### add
 
 > Indicates that all deletable root level dag objects and all deletable non-dag dependency nodes should be selected.
+>
 > 可简单的理解为加选物体
 
 ```python
