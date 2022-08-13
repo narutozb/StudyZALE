@@ -12,7 +12,7 @@
 import maya.cmds as cmds
 ```
 
-在不添加任何指定参数时，可用一下方法选中物体。
+简单的例子
 
 ```python
 # 选中所有
