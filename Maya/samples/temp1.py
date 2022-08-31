@@ -31,4 +31,4 @@ for j in cmds.ls(type='joint'):
 
 # 打印测试
 for i in all_info_list:
-    print i
+    print (i)
