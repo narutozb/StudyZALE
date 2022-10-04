@@ -3,13 +3,8 @@ from pathlib import Path
 from psd_tools import PSDImage
 
 
-
-
 def export_psd_group_to(orig_=None):
-
-
     NORMAL_EXPORT_NAME_LIST = ['C', 'N', 'ORM', 'shellMask']
-
 
     orig_short_file_name, orig_suffix = os.path.splitext(os.path.basename(orig_))
     orig_parent_dir_path = Path(orig_).parent.parent.absolute()
@@ -33,8 +28,7 @@ def export_psd_group_to(orig_=None):
         layer.composite().save(save_path)
 
 
-
-#------------------------------------------------
+# ------------------------------------------------
 # for root,dirs, files in os.walk(r'D:\test_scenes\top'):
 #     for file in files:
 #         short_name, suffix = os.path.splitext(file)
@@ -43,12 +37,7 @@ def export_psd_group_to(orig_=None):
 #             export_psd_group_to(orig_file_path)
 
 
-
-
-
 def get_psd_infos(orig_=None):
-
-
     NORMAL_EXPORT_NAME_LIST = ['C', 'N', 'ORM', 'shellMask']
     LAYER_INFOS_REFERENCE = {
         'Name': [],
@@ -78,8 +67,3 @@ def get_psd_infos(orig_=None):
         LAYER_INFOS_REFERENCE.get('HasEffect?').append(layer.has_effects())
 
     return LAYER_INFOS_REFERENCE
-
-
-
-
-
