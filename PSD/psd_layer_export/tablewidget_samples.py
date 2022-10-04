@@ -154,7 +154,7 @@ class LayertableWidget(QWidget):
         if len(self.current_file_list) < 1:
             return
         self.worker.file_list = self.current_file_list
-        self.progressbar.setRange(0, len(self.current_file_list) - 1)
+        self.progressbar.setRange(0, len(self.current_file_list))
 
         # progressing
         self.worker.start()
@@ -220,7 +220,7 @@ class Worker(QtCore.QThread):
         self.file_list = []
 
     def run(self):
-        num = 0
+        num = 1
         for i in self.file_list:
             export_psd_group_to(orig_=i)
             self.update_progress.emit(num)
