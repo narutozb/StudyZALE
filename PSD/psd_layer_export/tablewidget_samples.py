@@ -1,14 +1,13 @@
 import os
 import sys
-import time
 
 import pandas as pd
 from PySide6 import QtCore
 from PySide6.QtGui import QCloseEvent
 from PySide6.QtWidgets import QWidget, QHBoxLayout, QTableWidget, QTableWidgetItem, QApplication, QHeaderView, \
-    QListWidget, QAbstractItemView, QMainWindow, QVBoxLayout, QGroupBox, QFormLayout, QGridLayout, QLabel, QComboBox, \
-    QLineEdit, QSpinBox, QPushButton, QFileDialog, QTextEdit, QMessageBox, QProgressBar, QProgressDialog
-from PySide6.QtCore import QItemSelection, QLocale, Qt, Slot, QTimer
+    QListWidget, QVBoxLayout, QGroupBox, QLabel, QLineEdit, QPushButton, QFileDialog, QMessageBox, QProgressBar, \
+    QFormLayout, QComboBox, QBoxLayout, QGridLayout
+from PySide6.QtCore import Qt
 
 from export import get_psd_infos, export_psd_group_to
 
@@ -16,12 +15,12 @@ from export import get_psd_infos, export_psd_group_to
 LAYER_DETAIL_INFO_LIST = ['Name', 'IsVisible', 'Type?', 'Size?', 'ParentName?', 'HasMask?', 'HasEffect?']
 
 
-class LayertableWidget(QWidget):
+class LayerTableWidget(QWidget):
     def __init__(self) -> None:
         super().__init__()
 
         # self.setFixedSize(800,500)
-        self.resize(800, 500)
+        self.resize(800, 600)
 
         self.init_ui()
         self.set_file_list_ui()
@@ -38,7 +37,7 @@ class LayertableWidget(QWidget):
 
     def init_ui(self):
         # 设置标题
-        self.setWindowTitle('LayerInfos')
+        self.setWindowTitle('Export PSD Layer To')
 
     def set_layers_ui(self):
         self._gb_layer_detail_box = QGroupBox('Layer Details')
@@ -78,19 +77,31 @@ class LayertableWidget(QWidget):
         bt_remove_file.clicked.connect(self.remove_file_from_list_func)
 
         # 导出按钮
-        bt_export_all_list_file = QPushButton('Export All To')
+        bt_export_all_list_file = QPushButton('Export All')
         bt_export_all_list_file.clicked.connect(self.export_all_file_to_func)
 
         self._list_widget = QListWidget()
         self._list_widget.doubleClicked.connect(self.double_clicked_file_item_func)
 
-        export_layout = QHBoxLayout()
+        # 输出类型设定
+        self.set_export_type_combbox = ExportTypeCombBox()
 
+        # 输出位置设定
+        self.set_export_path_combbox = ExportToPathCombBox()
+        self.set_export_path_combbox.combo_box.currentTextChanged.connect(self.change_path_to_func)
+
+        # 指定文件夹
+        self.set_specific_folder_path_line = ExportSpecificFolderGroup()
+
+        export_layout = QVBoxLayout()
         #
         bt_layout.addWidget(bt_add_file_to_list)
         bt_layout.addWidget(bt_remove_file)
 
         export_layout.addWidget(bt_export_all_list_file)
+        export_layout.addLayout(self.set_export_path_combbox.layout)
+        export_layout.addLayout(self.set_export_type_combbox.layout)
+        export_layout.addLayout(self.set_specific_folder_path_line.layout)
         # Layout
         layout.addLayout(bt_layout)
         layout.addWidget(self._list_widget)
@@ -154,6 +165,9 @@ class LayertableWidget(QWidget):
         if len(self.current_file_list) < 1:
             return
         self.worker.file_list = self.current_file_list
+        self.worker.export_type = self.set_export_type_combbox.combo_box.currentText()
+        self.worker.export_to = self.set_export_path_combbox.combo_box.currentText()
+        self.worker.save_path = self.set_specific_folder_path_line.line.text()
         self.progressbar.setRange(0, len(self.current_file_list))
 
         # progressing
@@ -192,13 +206,51 @@ class LayertableWidget(QWidget):
     def set_progress_value(self, progress):
         self.progressbar.setValue(progress)
 
+    def change_path_to_func(self):
+        if self.set_export_path_combbox.combo_box.currentText() != 'SpecificFolder':
+            self.set_specific_folder_path_line.line.setEnabled(False)
+            self.set_specific_folder_path_line.bt_browse.setEnabled(False)
+        else:
+            self.set_specific_folder_path_line.line.setEnabled(True)
+            self.set_specific_folder_path_line.bt_browse.setEnabled(True)
+
+class ExportTypeCombBox():
+
+    def __init__(self):
+        self.create_group()
+
+    def create_group(self):
+        self.layout = QHBoxLayout()
+
+        self.label = QLabel()
+        self.label.setText('Type:')
+        self.combo_box = QComboBox()
+        self.combo_box.addItems(['JPG', 'TGA', 'PNG'])
+        self.layout.addWidget(self.label)
+        self.layout.addWidget(self.combo_box)
+        self.layout.setContentsMargins(0, 0, 0, 0)
+
+
+class ExportToPathCombBox():
+    def __init__(self):
+        self.create_group()
+
+    def create_group(self):
+        self.layout = QHBoxLayout()
+        self.label = QLabel()
+        self.label.setText('Path to:')
+        self.combo_box = QComboBox()
+        self.combo_box.addItems(['ParentFolder', 'CurrentFolder', 'SpecificFolder'])
+        self.layout.addWidget(self.label)
+        self.layout.addWidget(self.combo_box)
+        self.layout.setContentsMargins(0, 0, 0, 0)
+
 
 class ExportFileNameGroup():
     def __init__(self):
         self.create_group()
 
     def create_group(self):
-        # self.group_for_form_group = QGroupBox()
         self.layout = QHBoxLayout()
 
         self.prefix = QLineEdit()
@@ -209,7 +261,29 @@ class ExportFileNameGroup():
         self.layout.addWidget(self.middle)
         self.layout.addWidget(self.suffix)
 
-        # self.group_for_form_group.setLayout(layout)
+
+class ExportSpecificFolderGroup():
+    def __init__(self):
+        self.create_group()
+
+    def create_group(self):
+        self.layout = QHBoxLayout()
+        self.label = QLabel('Export to Path:')
+        self.line = QLineEdit()
+        self.line.setEnabled(False)
+        self.bt_browse = QPushButton()
+        self.bt_browse.setEnabled(False)
+        self.bt_browse.clicked.connect(self.browse_func)
+        self.bt_browse.setText('Browse..')
+        self.layout.addWidget(self.label)
+        self.layout.addWidget(self.line)
+        self.layout.addWidget(self.bt_browse)
+
+    def browse_func(self):
+        directory_path = \
+            QFileDialog.getExistingDirectory(caption='Get Directory', dir=os.path.expanduser('~'),)
+        if directory_path:
+            self.line.setText(directory_path)
 
 
 class Worker(QtCore.QThread):
@@ -218,17 +292,27 @@ class Worker(QtCore.QThread):
     def __init__(self):
         QtCore.QThread.__init__(self)
         self.file_list = []
+        self.export_type = None
+        self.export_to = None
+        self.save_path = None
 
     def run(self):
         num = 1
         for i in self.file_list:
-            export_psd_group_to(orig_=i)
+            export_psd_group_to(
+                psd_path=i, save_file_type=self.export_type,
+                export_to=self.export_to, save_path=self.save_path,
+            )
             self.update_progress.emit(num)
             num += 1
 
 
-if __name__ == '__main__':
+def main():
     app = QApplication(sys.argv)
-    main = LayertableWidget()
+    main = LayerTableWidget()
     main.show()
     sys.exit(app.exec())
+
+
+if __name__ == '__main__':
+    main()
