@@ -1,5 +1,8 @@
 import maya.cmds as cmds
 
+'''
+https://www.youtube.com/watch?v=8n1SKurbDNs
+'''
 
 def get_node_type(name):
     lr = cmds.listRelatives(name, c=True, shapes=True)
