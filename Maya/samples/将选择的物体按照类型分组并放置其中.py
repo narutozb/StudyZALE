@@ -10,7 +10,7 @@ def get_node_type(name):
         node_type = cmds.nodeType(lr)
         return node_type
     else:
-        node_type = cmds.nodeType(i)
+        node_type = cmds.nodeType(name)
         if node_type == 'joint':
             return 'joint'
         elif node_type == 'transform':
